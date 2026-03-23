@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Abigail's Affiliate Marketing Course</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .flyer {
+            background: white;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 30px); }
+        }
+
+        .header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            color: white;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #FFD700;
+            color: #333;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out backwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.3s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.5s; }
+        .section:nth-child(5) { animation-delay: 0.6s; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            color: #764ba2;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .list-item:hover {
+            background: #e9ecef;
+        }
+
+        .list-item .emoji {
+            font-size: 24px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .list-item p {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .pricing-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-box::before {
+            content: '🔥';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 40px;
+            opacity: 0.3;
+        }
+
+        .old-price {
+            font-size: 20px;
+            text-decoration: line-through;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .new-price {
+            font-size: 48px;
+            font-weight: 700;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .early-bird {
+            background: #FFD700;
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .cta {
+            background: #f5576c;
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 30px;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+        }
+
+        .cta:hover {
+            background: #e04055;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(245, 87, 108, 0.5);
+        }
+
+        .date-banner {
+            background: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .date-banner span {
+            color: #FFD700;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .new-price {
+                font-size: 36px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer">
+        <div class="header">
+            <h1>MAKE MONEY ONLINE</h1>
+            <p>Coach Abigail's Affiliate Marketing Course</p>
+            <div class="badge">FOR COMPLETE BEGINNERS</div>
+        </div>
+
+        <div class="date-banner">
+            📅 ENROLLMENT OPENS <span>APRIL 1ST, 2026</span>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>🎯 What You'll Learn</h2>
+                <div class="list-item">
+                    <div class="emoji">✅</div>
+                    <p><strong>Start affiliate marketing from zero</strong> – No experience needed</p>
+                </div>
+                <div class="list-item">
+                    <div class="emoji">✅</div>
+                    <p><strong>Pick winning products & earn commissions</strong> – Know what sells</p>
+                </div>
+                <div class="list-item">
+                    <div class="emoji">✅</div>
+                    <p><strong>Create content that converts</strong> – Even with no followers</p>
+                </div>
+                <div class="list-item">
+                    <div class="emoji">✅</div>
+                    <p><strong>Make your first sale step-by-step</strong> – Clear action plan</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📦 What's Included</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="icon">📹</div>
+                        <h3>15 Video Lessons</h3>
+                        <p>Complete affiliate marketing roadmap</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🎬</div>
+                        <h3>Video Editing Bonus</h3>
+                        <p>3-5 tutorials to create scroll-stopping content</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">💬</div>
+                        <h3>Private Group</h3>
+                        <p>Live testimonials, proof & support</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">📝</div>
+                        <h3>Templates Included</h3>
+                        <p>Ready-to-use resources</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>👥 Who Is This For?</h2>
+                <div class="list-item">
+                    <div class="emoji">👨‍🎓</div>
+                    <p>Students earning while studying</p>
+                </div>
+                <div class="list-item">
+                    <div class="emoji">👨‍👩‍👧</div>
+                    <p>Parents with flexible schedules</p>
+                </div>
+                <div class="list-item">
+                    <div class="emoji">💼</div>
+                    <p>9-5 workers building a side hustle</p>
+                </div>
+                <div class="list-item">
+                    <div class="emoji">🤔</div>
+                    <p>Anyone curious about making money online</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>💰 Investment</h2>
+                <div class="pricing-box">
+                    <div class="old-price">Regular Price: ₦20,000</div>
+                    <div class="new-price">₦15,000</div>
+                    <div class="early-bird">🔥 EARLY BIRD PRICE</div>
+                    <p style="margin-top: 15px; font-size: 14px; opacity: 0.9;">Limited slots available</p>
+                </div>
+            </div>
+
+            <a href="#" class="cta">DM COACH ABIGAIL TO REGISTER 💬</a>
+
+            <div style="text-align: center; margin-top: 25px; color: #666; font-size: 18px; font-weight: 700;">
+                Stop thinking. Start earning. 🚀
+            </div>
+        </div>
+    </div>
+</body>
+</html>
